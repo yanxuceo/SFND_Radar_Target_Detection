@@ -48,30 +48,39 @@ end
 ```
 
 ## Output
-
-<img src="media/fft1_range.jpg"  width="680" height="420">
 **_fft1 range_**
+<p align = "center">
 
+  <img src="media/fft1_range.jpg"  width="680" height="420">
+</p>
 
-<img src="media/fft2_plot.jpg"  width="680" height="440">
 **_fft2 plot_**
+<p align = "center">
+<img src="media/fft2_plot.jpg"  width="680" height="440">
+</p>
 
 
-<img src="media/fft2_range.jpg"  width="680" height="440">
 **_fft2 range_**
+<p align = "center">
+<img src="media/fft2_range.jpg"  width="680" height="440">
+</p>
 
-
-<img src="media/fft2_speed.jpg"  width="680" height="440">
 **_fft2 speed_**
+<p align = "center">
+<img src="media/fft2_speed.jpg"  width="680" height="440">
+</p>
 
-
-<img src="media/cfar_RDM.jpg"  width="680" height="440">
 **_CFAR RDM_**
+<p align = "center">
+<img src="media/cfar_RDM.jpg"  width="680" height="440">
+</p>
 
-
-<img src="media/cfar_range.jpg"  width="680" height="440">
 **_CFAR range_**
+<p align = "center">
+<img src="media/cfar_range.jpg"  width="680" height="440">
+</p>
 
-
-<img src="media/cfar_speed.jpg"  width="680" height="440">
 **_CFAR speed_**
+<p align = "center">
+<img src="media/cfar_speed.jpg"  width="680" height="440">
+</p>
