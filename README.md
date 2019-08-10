@@ -1,4 +1,5 @@
 ## Implementation steps for the 2D CFAR process
+Check what is [CFAR](https://en.wikipedia.org/wiki/Constant_false_alarm_rate) here.
 
 1. Select the number of Training Cells in both the dimensions Tr and Td; and select the number of Guard Cells in both dimensions around the Cell under test(CUT) Gr and Gd. 
 <br/>
@@ -22,6 +23,7 @@
 
 
 ## Selection of Training, Guard cells and offset
+The selection or choice of training cells depends on the environment. I assume a scenario of less dense traffic area where training cells are used from my choice of values as closely spaced target can less impact the noise estimate. The choice of the guard cells was to avoid the target cells from leaking to the training cells. This value was decided based on the leakage of the target signal. The offset value was based on the target surrounding to allow valid target to be detected and the same time suppresses the clutter noise.
 
 * the number of Training Cells in range dimension Tr = 10
 * the number of Training Cells in doppler dimension Td = 8
@@ -31,7 +33,22 @@
 
 
 ## Steps taken to suppress the non-thresholded cells at the edges
-The process above will generate a thresholded block, which is smaller than the Range Doppler Map as the CUT cannot be located at the edges of matrix. Hence,few cells will not be thresholded. To keep the map size same set those values to 0. By this way:
+The process above will generate a thresholded block, which is smaller than the Range Doppler Map as the CUT cannot be located at the edges of matrix. Hence,few cells will not be thresholded. To keep the map size same set those values to 0. By sliding through the RDM matrix, and checking for value in each cell; then if value is different from 0 or 1, then assign it the value 0:
 ```
 RDM(RDM~=0 & RDM~=1) = 0;
+```
+
+or
+
+```
+[h, w] =  size(RDM); 
+
+for i = 1:h
+    for j = 1:w
+        if(RDM(i,j) ~= 0 && RDM(i,j) ~= 1)
+            RDM(i,j) = 0;
+        end
+    end
+end
+
 ```
