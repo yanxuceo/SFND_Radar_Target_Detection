@@ -2,22 +2,16 @@
 Check what is [CFAR](https://en.wikipedia.org/wiki/Constant_false_alarm_rate) here.
 
 1. Select the number of Training Cells in both the dimensions Tr and Td; and select the number of Guard Cells in both dimensions around the Cell under test(CUT) Gr and Gd. 
-<br/>
 
 2. Design a loop such that it slides the CUT across range doppler map.
-<br/>
 
 3. For every iteration sum the signal level within all the training cells. To sum convert the value from logarithmic to linear using db2pow function.
-<br/>
 
 4. Average the summed values for all of the training cells used. After averaging convert it back to logarithimic using pow2db.
-<br/>
 
 5. Further adding the offset to it to determine the threshold. 
-<br/>
 
 6. Compare the signal under CUT with this threshold. If the CUT level > threshold assign it a value of 1, else equate it to 0.
-<br/>
 
 7. To keep the map size as it was before CFAR, assign 0 to all the non-thresholded cell to 0.
 
@@ -52,3 +46,25 @@ for i = 1:h
 end
 
 ```
+
+## Output
+**_fft1 range_**
+<img src="media/fft1_range.jpg"  width="680" height="420">
+
+**_fft2 plot_**
+<img src="media/fft2_plot.jpg"  width="680" height="440">
+
+**_fft2 range_**
+<img src="media/fft2_range.jpg"  width="680" height="440">
+
+**_fft2 speed_**
+<img src="media/fft2_speed.jpg"  width="680" height="440">
+
+**_CFAR RDM_**
+<img src="media/cfar_RDM.jpg"  width="680" height="440">
+
+**_CFAR range_**
+<img src="media/cfar_range.jpg"  width="680" height="440">
+
+**_CFAR speed_**
+<img src="media/cfar_speed.jpg"  width="680" height="440">
