@@ -129,7 +129,7 @@ Mix=reshape(Mix,[Nr,Nd]);
 % 1D FFt
 sig_fft1 = fft(Mix, Nr);
 sig_fft1 = abs(sig_fft1);
-sig_fft1 = sig_fft1./max(sig_fft1);
+sig_fft1 = sig_fft1/max(sig_fft1);
 sig_fft1 = sig_fft1(1:Nr/2-1);
 
 figure ('Name','Range from First FFT')
