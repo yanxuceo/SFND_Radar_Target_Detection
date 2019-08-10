@@ -132,9 +132,12 @@ sig_fft1 = abs(sig_fft1);
 sig_fft1 = sig_fft1/max(sig_fft1);
 sig_fft1 = sig_fft1(1:Nr/2-1);
 
-figure ('Name','Range from First FFT')
-subplot(2,1,1)
+figure ('Name','Range from fft1')
+%subplot(2,1,1)
 plot(sig_fft1)
+title('Range from fft1');
+ylabel('Normalized Amplitude')
+xlabel('Range')
 axis ([0 200 0 1]);
 
 
@@ -151,7 +154,29 @@ RDM = 10*log10(RDM) ;
 %dimensions
 doppler_axis = linspace(-100,100,Nd);
 range_axis = linspace(-200,200,Nr/2)*((Nr/2)/400);
-figure,surf(doppler_axis,range_axis,RDM);
+figure('name','fft2 plot');
+surf(doppler_axis,range_axis,RDM);
+title('fft2 plot');
+xlabel('Speed');
+ylabel('Range');
+zlabel('Amplitude');
+
+
+figure('name','fft2 range estimation');
+surf(doppler_axis,range_axis,RDM);
+title('fft2 range estimation');
+xlabel('Speed');
+ylabel('Range');
+zlabel('Amplitude');
+view(90,0);
+
+figure('name','fft2 speed estimation');
+surf(doppler_axis,range_axis,RDM);
+title('fft2 speed estimation');
+xlabel('Speed');
+ylabel('Range');
+zlabel('Amplitude');
+view(0,0);
 
 %% CFAR implementation
 
@@ -246,23 +271,30 @@ end
 %Doppler Response output.
 
 
-figure,surf(doppler_axis,range_axis,RDM);
+figure('name','CFAR Filtered RDM');
+surf(doppler_axis,range_axis,RDM);
 colorbar;
+title('CFAR RDM');
 xlabel('Speed');
 ylabel('Range');
+zlabel('Amplitude')
 
 
-figure('name','Speed'),surf(doppler_axis,range_axis,RDM);
+figure('name','Amplitude and Speed estimation from CFAR'),surf(doppler_axis,range_axis,RDM);
 colorbar;
+title('Speed estimation from CFAR');
 xlabel('Speed');
 ylabel('Range');
+zlabel('Amplitude')
 view(0,0);
 
 
-figure('name','Range'),surf(doppler_axis,range_axis,RDM);
+figure('name','Amplitude and Range estimation from CFAR'),surf(doppler_axis,range_axis,RDM);
 colorbar;
+title('Range estimation from CFAR');
 xlabel('Speed');
 ylabel('Range');
+zlabel('Amplitude')
 view(90,0);
 
  
